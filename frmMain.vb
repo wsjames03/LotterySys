@@ -1,6 +1,10 @@
-﻿Public Class frmMain
+﻿Imports System.Drawing.Printing
+Imports LotterySys.Model2
 
-    Private objSelector As New Selector()
+Public Class frmMain
+
+    Private objSelector As New Selector()       '创建选号器对象
+    Private printDoc As New PrintDocument()     '创建打印对象
 
 #Region "初始化"
 
@@ -15,6 +19,9 @@
         Me.btnPrint.Enabled = False
         Me.btnClear.Enabled = False
         Me.btnDel.Enabled = False
+
+        '关联打印对象的事件
+        AddHandler printDoc.PrintPage, AddressOf Me.LotteryPrintPage
 
     End Sub
 
@@ -149,7 +156,7 @@
 
         objSelector.SelectedNums.Add(selectedNum)
 
-        ShowSeletedNums() '//显示选中的号码
+        ShowSeletedNums() ''显示选中的号码
 
     End Sub
 
@@ -234,7 +241,30 @@
 
     End Sub
 
+    ''' <summary>
+    ''' 打印功能实现
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        Me.printDoc.Print()
+    End Sub
 
+    ''' <summary>
+    ''' 具体打印实现过程
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub LotteryPrintPage(sender As Object, e As System.Drawing.Printing.PrintPageEventArgs)
+
+        Dim serialNum = DateTime.Now.ToString("yyyyMMddHHmmssms") '流水号（生成条码使用）
+        Me.objSelector.PrintLottery(e, serialNum, objSelector.GetPrintedNums()) '调用前面编写的打印方法
+
+        objSelector.Save(serialNum) '同时保存所选号码
+
+        btnClear_Click(Nothing, Nothing) '打印完毕后清空
+
+    End Sub
 
 #End Region
 
