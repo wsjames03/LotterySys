@@ -22,6 +22,7 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -33,7 +34,7 @@ Partial Class frmMain
         Me.lblGrpNum = New System.Windows.Forms.Label()
         Me.btnGroupSelect = New System.Windows.Forms.Button()
         Me.txtNum7 = New System.Windows.Forms.TextBox()
-        Me.txtNu2 = New System.Windows.Forms.TextBox()
+        Me.txtNum2 = New System.Windows.Forms.TextBox()
         Me.txtNum3 = New System.Windows.Forms.TextBox()
         Me.txtNum4 = New System.Windows.Forms.TextBox()
         Me.txtNum5 = New System.Windows.Forms.TextBox()
@@ -52,6 +53,7 @@ Partial Class frmMain
         Me.btnMin = New System.Windows.Forms.Button()
         Me.btnMax = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
+        Me.RandomTimer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -69,7 +71,7 @@ Partial Class frmMain
         Me.Panel1.Controls.Add(Me.lblGrpNum)
         Me.Panel1.Controls.Add(Me.btnGroupSelect)
         Me.Panel1.Controls.Add(Me.txtNum7)
-        Me.Panel1.Controls.Add(Me.txtNu2)
+        Me.Panel1.Controls.Add(Me.txtNum2)
         Me.Panel1.Controls.Add(Me.txtNum3)
         Me.Panel1.Controls.Add(Me.txtNum4)
         Me.Panel1.Controls.Add(Me.txtNum5)
@@ -152,7 +154,7 @@ Partial Class frmMain
         Me.txtGrpNum.Name = "txtGrpNum"
         Me.txtGrpNum.Size = New System.Drawing.Size(29, 29)
         Me.txtGrpNum.TabIndex = 18
-        Me.txtGrpNum.Text = "5"
+        Me.txtGrpNum.Text = "０"
         Me.txtGrpNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblGrpNum
@@ -180,6 +182,7 @@ Partial Class frmMain
         Me.txtNum7.Font = New System.Drawing.Font("Microsoft YaHei UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.txtNum7.ForeColor = System.Drawing.Color.White
         Me.txtNum7.Location = New System.Drawing.Point(581, 188)
+        Me.txtNum7.MaxLength = 1
         Me.txtNum7.Multiline = True
         Me.txtNum7.Name = "txtNum7"
         Me.txtNum7.Size = New System.Drawing.Size(29, 29)
@@ -187,23 +190,25 @@ Partial Class frmMain
         Me.txtNum7.Text = "0"
         Me.txtNum7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'txtNu2
+        'txtNum2
         '
-        Me.txtNu2.BackColor = System.Drawing.Color.White
-        Me.txtNu2.Font = New System.Drawing.Font("Microsoft YaHei UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.txtNu2.Location = New System.Drawing.Point(334, 188)
-        Me.txtNu2.Multiline = True
-        Me.txtNu2.Name = "txtNu2"
-        Me.txtNu2.Size = New System.Drawing.Size(29, 29)
-        Me.txtNu2.TabIndex = 14
-        Me.txtNu2.Text = "0"
-        Me.txtNu2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtNum2.BackColor = System.Drawing.Color.White
+        Me.txtNum2.Font = New System.Drawing.Font("Microsoft YaHei UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.txtNum2.Location = New System.Drawing.Point(334, 188)
+        Me.txtNum2.MaxLength = 1
+        Me.txtNum2.Multiline = True
+        Me.txtNum2.Name = "txtNum2"
+        Me.txtNum2.Size = New System.Drawing.Size(29, 29)
+        Me.txtNum2.TabIndex = 14
+        Me.txtNum2.Text = "0"
+        Me.txtNum2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtNum3
         '
         Me.txtNum3.BackColor = System.Drawing.Color.White
         Me.txtNum3.Font = New System.Drawing.Font("Microsoft YaHei UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.txtNum3.Location = New System.Drawing.Point(375, 188)
+        Me.txtNum3.MaxLength = 1
         Me.txtNum3.Multiline = True
         Me.txtNum3.Name = "txtNum3"
         Me.txtNum3.Size = New System.Drawing.Size(29, 29)
@@ -216,6 +221,7 @@ Partial Class frmMain
         Me.txtNum4.BackColor = System.Drawing.Color.White
         Me.txtNum4.Font = New System.Drawing.Font("Microsoft YaHei UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.txtNum4.Location = New System.Drawing.Point(416, 188)
+        Me.txtNum4.MaxLength = 1
         Me.txtNum4.Multiline = True
         Me.txtNum4.Name = "txtNum4"
         Me.txtNum4.Size = New System.Drawing.Size(29, 29)
@@ -228,6 +234,7 @@ Partial Class frmMain
         Me.txtNum5.BackColor = System.Drawing.Color.White
         Me.txtNum5.Font = New System.Drawing.Font("Microsoft YaHei UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.txtNum5.Location = New System.Drawing.Point(457, 188)
+        Me.txtNum5.MaxLength = 1
         Me.txtNum5.Multiline = True
         Me.txtNum5.Name = "txtNum5"
         Me.txtNum5.Size = New System.Drawing.Size(29, 29)
@@ -240,6 +247,7 @@ Partial Class frmMain
         Me.txtNum6.BackColor = System.Drawing.Color.White
         Me.txtNum6.Font = New System.Drawing.Font("Microsoft YaHei UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.txtNum6.Location = New System.Drawing.Point(498, 188)
+        Me.txtNum6.MaxLength = 1
         Me.txtNum6.Multiline = True
         Me.txtNum6.Name = "txtNum6"
         Me.txtNum6.Size = New System.Drawing.Size(29, 29)
@@ -252,6 +260,7 @@ Partial Class frmMain
         Me.txtNum1.BackColor = System.Drawing.Color.White
         Me.txtNum1.Font = New System.Drawing.Font("Microsoft YaHei UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.txtNum1.Location = New System.Drawing.Point(293, 188)
+        Me.txtNum1.MaxLength = 1
         Me.txtNum1.Multiline = True
         Me.txtNum1.Name = "txtNum1"
         Me.txtNum1.Size = New System.Drawing.Size(29, 29)
@@ -418,6 +427,10 @@ Partial Class frmMain
         Me.btnClose.Text = "×"
         Me.btnClose.UseVisualStyleBackColor = True
         '
+        'RandomTimer
+        '
+        Me.RandomTimer.Interval = 50
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -452,7 +465,7 @@ Partial Class frmMain
     Friend WithEvents lblNum4 As Label
     Friend WithEvents lbNumberList As ListBox
     Friend WithEvents txtNum1 As TextBox
-    Friend WithEvents txtNu2 As TextBox
+    Friend WithEvents txtNum2 As TextBox
     Friend WithEvents txtNum3 As TextBox
     Friend WithEvents txtNum4 As TextBox
     Friend WithEvents txtNum5 As TextBox
@@ -467,4 +480,5 @@ Partial Class frmMain
     Friend WithEvents btnDel As Button
     Friend WithEvents btnConfirm As Button
     Friend WithEvents btnRandomSelect As Button
+    Friend WithEvents RandomTimer As Timer
 End Class
